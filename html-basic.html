@@ -52,9 +52,11 @@
 </dl>
 <hr>
 <em>GOOGLE搜索</em>
-  <form action="https://www.google.com">
-    <input placeholder="请输入想搜索的内容"></form>
-    <button>在新窗口打开搜索</button>
+  <form action="https://www.baidu.com/s">
+
+    <input placeholder="请输入想搜索的内容" type="text" name=a>
+    <input type="submit" target="_blank"  value="在新窗口打开搜索">
+  </form>
 <hr>
 <p>个人信息调查表</p>
 
@@ -62,18 +64,94 @@
 <form>
     <input type="radio" >男
     <input type="radio" >女
+  <p>年龄</p>
+    <select name="" id="">
+      <option value="" selected hidden>请选择</option>
+      <optgroup label="少年"></optgroup>
+        <option value="">1~6岁</option>
+        <option value="">6~12岁</option>
+      <optgroup label="青年"></optgroup>
+        <option value="">12~16岁</option>
+        <option value="">16~18岁</option>
+      <optgroup label="壮年"></optgroup>
+        <option value="">18~22岁</option>
+        <option value="">22~30岁</option>
+    </select>
   <p>生日</p>
     <input type="date">
   <p>生辰</p>
     <input type="time">
   <p>上传照片</p>
-  点我上传照片<input hidden type="file" name="" id="">
+  <label>点我上传照片 <input hidden type="file" name="" id=""></label>
   <p>肤色</p>
     <input type="color">
-  
+  <p>自我介绍</p>
+  <textarea name="" id="" cols="30" rows="10">&lt;/textarea</textarea>
+
+<fieldset disabled>
+  <legend>这里面的全部禁止</legend>
+  <input type="text">
+  <input type="text">
+  <input type="text">
+  <input type="text">
+</fieldset>
+<button type="submit">提交</button>
+<button type="reset">重置</button>
 </form>
+
+<table border="1">
+  <caption >货品列表</caption>
+    <col>
+    <col bgcolor="red">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>品名</th>
+      <th>进价</th>
+      <th>出价</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>001</th>
+      <td>苹果</td>
+      <td rowspan="2">5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>001</th >
+      <td>橘子</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>001</th>
+      <td>香蕉</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>001</th>
+      <td>山竹</td>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<img title="image titile " src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c" width=300 alt="" usemap="#map1">
+<map name="map1">
+  <area shape="rect" coords="58,86,200,169" href="https://www.xiaomi.com" alt="">
+  <area shape="circle" coords="127,238,70" href="https://www.xiaomi.com" alt="">
+  <area shape="poly" coords="30,265,134,316,145,349,217,256" href="https://www.xiaomi.com" alt="">
+</map>
+
+<hr>
+<a href="https://www.xiaomi.com" target="frame1">点我打开小米，但是小米不允许打开</a>
+<br>
+<iframe src="https://nodejs.org" name="frame1" frameborder="1"></iframe>
+<br>
 &lt;span>&lt;span>
 
 中间很多&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的空格
-
+<span id=bottom></span>
  
