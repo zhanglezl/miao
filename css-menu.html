@@ -1,0 +1,77 @@
+<html>
+    <body>
+        <ul>
+            <li>名字很短
+                <ul>
+                    <li>11111111
+                        <ul>
+                        <li>as</li>
+                        <li>撒大苏打</li>
+                        <li>asdasd</li>
+                        <li>22</li>
+                        <li>123123131</li>
+                        <li>123131</li>
+                        </ul>
+                    </li>
+                    <li>1111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+    
+            </li   >
+            <li>名字适中的题目
+                <ul>
+                    <li>1</li>
+                    <li>1111</li>
+                    <li>111</li>
+                    <li>111</li>
+                </ul>
+            </li>
+            <li>这个名字非常长asdfsafasfas飞洒</li>
+        </ul>
+    </body>
+</html>
+
+<style>
+    li {
+        white-space: nowrap;
+        display: inline-block;
+        padding: 0;
+        font-size: 16px;
+        position: relative;
+        border: 2px solid red;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        position: absolute;
+
+    }
+    li li {
+        display: block;
+    }
+    li ul {
+        display: none;
+    }
+     ul ul {
+    
+        left: 0;
+        top: 100%;
+        
+    }
+    ul  ul  ul  {
+        left: 100%;
+        top: 0;
+       
+    }    
+
+   
+    li:hover > ul {
+        display: block;
+    }
+  
+
+    
+</style>

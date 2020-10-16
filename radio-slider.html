@@ -1,0 +1,105 @@
+<html>
+    <body>
+        <section>
+            <input type="radio" name="a" id="a-1">
+            <input type="radio" name="a" id="a-2">
+            <input type="radio" name="a" id="a-3">
+            <input type="radio" name="a" id="a-4">
+            <input type="radio" name="a" id="a-5">
+        <ul>
+            <li>
+                <a href="#"><img src="https://tse2-mm.cn.bing.net/th/id/OIP.WGjYSVCjQAP79P8YyNJn8wHaKW?w=124&h=180&c=7&o=5&pid=1.7" alt=""></a>
+                <label for="a-5"> pre </label>
+                <label for="a-2"> next </label>
+            </li>
+            <li>
+                <a href="#"><img src="https://tse2-mm.cn.bing.net/th/id/OIP.gdJ_dL5MnWdvFf1TKGwNhQHaKA?w=133&h=180&c=7&o=5&pid=1.7" alt=""></a>
+                <label for="a-1"> pre </label>
+                <label for="a-3"> next </label>
+            </li>
+            <li>
+                <a href="#"><img src="https://tse3-mm.cn.bing.net/th/id/OIP.8pfwQaK5kBzfn3jqRjdljgHaFj?w=249&h=187&c=7&o=5&pid=1.7" alt=""></a>
+                <label for="a-2"> pre </label>
+                <label for="a-4"> next </label>
+            </li>
+            <li>
+                <a href="#"><img src="https://tse2-mm.cn.bing.net/th/id/OIP.uCF4V9hTBxvT_tdSEyORbQHaKd?w=120&h=180&c=7&o=5&pid=1.7" alt=""></a>
+                <label for="a-3"> pre </label>
+                <label for="a-5"> next</label>
+            </li>
+            <li>
+                <a href="#"><img src="https://tse3-mm.cn.bing.net/th/id/OIP.c33Gr4YmeBLrpJNBw9py1AHaFS?w=247&h=180&c=7&o=5&pid=1.7" alt=""></a>
+                <label for="a-4"> pre </label>
+                <label for="a-1"> next</label>
+            </li>
+        </ul>
+        </section>
+    </body>
+</html>
+    <style>
+        section {
+            width: 300px;
+            height: 200px;
+            border: 3px solid gray;
+            position: relative;
+        }
+       ul {
+           list-style: 0;
+           padding: 0;
+           margin: 0;
+       }
+
+        }
+        section ul {
+            width: 100%;
+            height: 100%;
+            
+            
+        }
+      
+        section ul li {
+            opacity: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;   
+        }
+        section ul li img {
+
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 300px;
+            height: 200px;
+            display: block;
+        }
+       section ul  li :nth-last-child(2) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            height: 50px;
+        }
+         li :nth-child(3) {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            height: 50px;
+        }
+        
+        
+        input:nth-child(1):checked ~ ul li:nth-child(1),
+        input:nth-child(2):checked ~ ul li:nth-child(2),
+        input:nth-child(3):checked ~ ul li:nth-child(3),
+        input:nth-child(4):checked ~ ul li:nth-child(4),
+        input:nth-child(5):checked ~ ul li:nth-child(5) { 
+            opacity: 1;
+            z-index: 5;
+        }
+
+    </style>
