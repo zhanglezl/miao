@@ -8,6 +8,20 @@ var zhanglezl = function () {
         }
         return result
     }
+    function chunk (ary, size) {
+        var result = [[]]
+        var count = 0 
+        for (var i = 0,j = 0; i < ary.length; i++) {
+            count++
+            result[j].push(ary[i])
+            if (count == size) {
+                count = 0
+                j++
+                result.push([])
+            }
+        }
+        return result 
+    }
     
 
 
