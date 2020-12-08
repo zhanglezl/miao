@@ -17,11 +17,14 @@ var zhanglezl = function () {
             if (count == size) {
                 count = 0
                 j++
-                result.push([])
+                if (i < ary.length - 1) {
+                    result.push([])
+                }
             }
         }
         return result 
     }
+    function 
     
 
 
