@@ -26,7 +26,7 @@ var zhanglezl = function () {
 
 
     return {
-        compact,
+        compact,chunk,
     }
 
 }()
