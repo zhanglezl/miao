@@ -261,8 +261,20 @@ var zhanglezl = function () {
             return test(a) + test(b)
         }) - test(ary[0])
     }
+    function curry(fn) {
+        return function curried(...args) {
+            if (args.length < fn.length) {
+                return function (...args2) {
+                    return curriedfn (...args,args2)
+                }
+
+            }
+            return fn(...args)
+        }
+
+    }
     return {
-        compact, chunk, join, last, lastindexof, fill, findindex, findlastindex, flatten, flattendeep, flattendepth, frompairs, head, indexof, initial , drop, dropright, reverse, sortedindex, max, maxby, min, minby, sum, sumby, find, toarray, every, filter,
+        compact, chunk, join, last, lastindexof, fill, findindex, findlastindex, flatten, flattendeep, flattendepth, frompairs, head, indexof, initial , drop, dropright, reverse, sortedindex, max, maxby, min, minby, sum, sumby, find, toarray, every, filter, curry, 
     }
 
 }()
