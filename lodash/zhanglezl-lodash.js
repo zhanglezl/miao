@@ -27,9 +27,9 @@ var zhanglezl = function () {
     function join(ary,separator) {
         var res = ''
         for (var i = 0; i < ary.length - 1 ; i++) {
-            res +=  ary[i] + separator
+            res +=  ary[i] +''+ separator
         }
-        res = res + ary[ary.length - 1]
+        res = res +''+ ary[ary.length - 1]
         return res
         
     }
@@ -133,7 +133,7 @@ var zhanglezl = function () {
 
     function initial(ary) {
         var res = []
-        for (var i = 0; i < aryh.length - 1; i++) {
+        for (var i = 0; i < ary.length - 1; i++) {
             res.push(ary[i])
         }
         return res
@@ -161,12 +161,11 @@ var zhanglezl = function () {
     }
 
     function reverse(ary) {
-        var j = ary.length
+        var j = ary.length - 1 - i
         for (var i = 0; i < ary.length >> 1; i++) {
             var t = ary[i]
             ary[i] = ary[j]
             ary[j] = t
-            j--
         }
         return ary
     }
@@ -179,9 +178,91 @@ var zhanglezl = function () {
         }
         return i + 1
     }
+    function every(ary, test) {
+        for (var i = 0; i < ary.length; i++) {
+            if (!test(ary[i])) return false
+        }
+        return true
+    }
+
+    function filter(ary, test) {
+        var res = []
+        for (var i = 0; i < ary.length; i++) {
+            if (test(ary[i])) {
+                res.push(ary[i])
+            }
+        }
+        return res
+    }
     
+    function find(ary, test) {
+        for (var i = 0; i < ary.length; i++) {
+            if (test(ary[i])) return ary[i]
+        }
+    }
+
+    function toarray(val) {
+        if (typeof val == "string") {
+            return val.split("")
+        }
+        if (typeof val == "object") {
+            var res = []
+            for (key in val) {
+                res.push(val[key])
+            }
+            return res 
+        }
+        
+    }
+
+    function max(ary) {
+        var max = -Infinity
+        for (var i = 0; i < ary.length; i++) {
+            if (max < ary[i]) {
+                max = ary[i]
+            }
+        }
+        return max 
+    }
+    function maxby(ary,test) {
+        var max = 0
+        for (var i = 0; i < ary.length; i++) {
+            if (test(ary[max]) < test(ary[i])) {
+                max = i
+            }
+        }
+        return ary[max]  
+    }
+    function min(ary) {
+        var min = Infinity
+        for (var i = 0; i < ary.length; i++) {
+            if (min > ary[i]) {
+                min = ary[i]
+            }
+        }
+        return min 
+    }
+    function minby(ary,test) {
+        var min = 0
+        for (var i = 0; i < ary.length; i++) {
+            if (test(ary[min]) > test(ary[i])) {
+                min = i
+            }
+        }
+        return ary[min]  
+    }
+    function sum(ary) {
+        return ary.reduce(function(a, b) {
+            return a + b
+        },0)
+    }
+    function sumby(ary,test) {
+        return ary.reduce(function(a,b) {
+            return test(a) + test(b)
+        }) - test(ary[0])
+    }
     return {
-        compact, chunk, join, last, lastindexof, fill, findindex, findlastindex, flatten, flattendeep, flattendepth, frompairs, head, indexof, initial , drop, dropright, reverse, sortedindex, 
+        compact, chunk, join, last, lastindexof, fill, findindex, findlastindex, flatten, flattendeep, flattendepth, frompairs, head, indexof, initial , drop, dropright, reverse, sortedindex, max, maxby, min, minby, sum, sumby, find, toarray, every, filter,
     }
 
 }()
