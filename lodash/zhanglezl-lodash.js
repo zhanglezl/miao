@@ -52,13 +52,13 @@ var zhanglezl = function () {
         return ary
     }
 
-    function findindex(ary, test, from = 0) {
+    function findIndex(ary, test, from = 0) {
         for (var i = from; i < ary.length; i++) {
             if (test(ary[i])) return i
         }
         return -1    
     }
-    function findlastindex(ary, test, from = ary.length - 1) {
+    function findLastIndex(ary, test, from = ary.length - 1) {
         for (var i = from; i >= 0; i--) {
             if (test(ary[i])) return i
         }
@@ -66,9 +66,9 @@ var zhanglezl = function () {
     }
 
     function flatten(ary) {
-        var res = []
-        for (var i = 0; i < ary.length; i++) {
-            if (Array.isArray(ary[i])) {
+        var res = []                            // return [].concat(...ary)
+        for (var i = 0; i < ary.length; i++) {  // return [].concat.apply([], arrarys)
+            if (Array.isArray(ary[i])) {    // return [].concat.apply.bind([].concat, [])
                 res.push(...ary[i])
             } else {
                 res.push(ary[i])
@@ -77,20 +77,20 @@ var zhanglezl = function () {
         return res   
     }
 
-    function flattendeep(ary) {
+    function flattenDeep(ary) {
         var res = []
         var i = 0
         while(i < ary.length) {
             if (Array.isArray(ary[i])) {
                 res.push(...flattendeep(ary[i])) // res = res.concat(flattendeep(ary[i]))
                 i++
-            } else {
+            } else { 
                 res.push(ary[i++])
             }
         }
         return res
-    }
-    function flattendepth(ary, depth) {
+    }D
+    function flattenDepth(ary, depth) {
         var res = []
         if (depth == 0) return ary
         for (var i = 0; i < ary.length; i++) {
@@ -108,7 +108,7 @@ var zhanglezl = function () {
         return res
     }
     
-    function frompairs(pairs) {
+    function fromPairs(pairs) {
         var res = {}
         if (pairs.length == 2) {
             res[pairs[0]] = pairs[1]
@@ -124,7 +124,7 @@ var zhanglezl = function () {
         return ary[0]
     }
 
-    function indexof(ary,val, from = 0) {
+    function indexOf(ary,val, from = 0) {
         for (var i = from; i <= ary.length; i++) {
             if (val == ary[i]) return i
         }
@@ -149,7 +149,7 @@ var zhanglezl = function () {
         return res
     }
 
-    function dropright(ary, n = 1) {
+    function dropRight(ary, n = 1) {
         var res = []
         if (ary.length <= n) {
             return []
@@ -161,8 +161,8 @@ var zhanglezl = function () {
     }
 
     function reverse(ary) {
-        var j = ary.length - 1 - i
         for (var i = 0; i < ary.length >> 1; i++) {
+            var j = ary.length - 1 - i
             var t = ary[i]
             ary[i] = ary[j]
             ary[j] = t
@@ -170,7 +170,7 @@ var zhanglezl = function () {
         return ary
     }
 
-    function sortedindex(ary, val) {
+    function sortedIndex(ary, val) {
         for (var i = 0; i < ary.length; i++) {
             if (val <= ary[i]) {
                 return i 
@@ -201,7 +201,7 @@ var zhanglezl = function () {
         }
     }
 
-    function toarray(val) {
+    function toArray(val) {
         if (typeof val == "string") {
             return val.split("")
         }
@@ -224,7 +224,7 @@ var zhanglezl = function () {
         }
         return max 
     }
-    function maxby(ary,test) {
+    function maxBy(ary,test) {
         var max = 0
         for (var i = 0; i < ary.length; i++) {
             if (test(ary[max]) < test(ary[i])) {
@@ -242,7 +242,7 @@ var zhanglezl = function () {
         }
         return min 
     }
-    function minby(ary,test) {
+    function minBy(ary,test) {
         var min = 0
         for (var i = 0; i < ary.length; i++) {
             if (test(ary[min]) > test(ary[i])) {
@@ -256,8 +256,8 @@ var zhanglezl = function () {
             return a + b
         },0)
     }
-    function sumby(ary,test) {
-        return ary.reduce(function(a,b) {
+    function sumBy(ary,test = it => it) {
+        return ary.reduce(function(a,b) { 
             return test(a) + test(b)
         }) - test(ary[0])
     }
@@ -273,8 +273,90 @@ var zhanglezl = function () {
         }
 
     }
+    function concat(initArray, ...values) {
+        var res = initArray 
+        for (var i = 0; i < values.length; i++) {
+            if(Array.isArray(values[i])) {
+                values[i].forEach(it => {
+                    res.push(it)
+                })
+            } else {
+                res.push(values[i])
+            }
+        }
+        return res
+    }
+    
+    function groupBy(array, predicate = it => it) {   // if predicate is not inputed , ju
+        var res = {}                                  // just output itself
+        for (var i = 0; i < array.length; i++) {
+            var key = predicate(arrary[i], i, array) 
+            if (!Array.isArray(res[key])) {
+                res.key = []
+            } else {
+                res[key].push(array[i])
+            }
+        }
+    }
+    
+    function mapValues(obj, mapper) {
+        var res = {}
+        for (var key in obj) {
+            var val = obj[key]
+            res[key] = mapper(val, key, obj)
+        }
+        return res 
+    } 
+    function mapKeys(obj, mapper) {
+        var res = {}
+        for (var key in obj) {
+            var val = obj[key]
+            res[mapper(val, key, obj)] = val  
+        }
+        return res 
+    } 
+    function map(ary, mapper) {
+        var res = [] 
+        for (var i = 0; i < ary.length; i++) {
+            res.push (mapper(ary[i]), i ,ary)
+        }
+        return res  
+    }
+
+    function some(ary, f) {
+        return !every(ary, function(...args) {
+          return !f(...args)
+        })
+      }
+
+    function identity(val) {
+        return val
+    }
+
+    function difference(ary, ...values) {
+        var res = [].concat(...values)
+        return ary.filter(it => res.indexOf(it) == -1)
+    }
+    function differenceBy(ary, ...values, iteratee = (it => it)) {
+        
+    }
+
+    function intersection([values]) { 
+        var res = []
+        for (var i = 0; i < values[0].length; i++) {
+            for (var j = 1; j < values.length; j++) {
+                if (!values[j].includes(values[0][i])) {
+                    break
+                }
+                if (j = values.length - 1) {
+                    res.push(values[0][i])
+                }
+            }
+            return res
+        }
+    }
     return {
-        compact, chunk, join, last, lastindexof, fill, findindex, findlastindex, flatten, flattendeep, flattendepth, frompairs, head, indexof, initial , drop, dropright, reverse, sortedindex, max, maxby, min, minby, sum, sumby, find, toarray, every, filter, curry, 
+        compact, chunk, join, last, lastindexof, fill, findIndex, findLastIndex, flatten, flattenDeep, flattenDepth, fromPairs, head, indexOf, initial , drop, dropRight, reverse, sortedIndex, max, maxBy, min, minBy, sum, sumBy, find, toArray, every, filter, curry, concat, groupBy, mapValues, map, some, identity, mapKeys, difference, intersection, 
     }
 
 }()
