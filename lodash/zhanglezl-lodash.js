@@ -337,9 +337,6 @@ var zhanglezl = function () {
         var res = [].concat(...values)
         return ary.filter(it => res.indexOf(it) == -1)
     }
-    function differenceBy(ary, ...values, iteratee = (it => it)) {
-        
-    }
 
     function intersection([values]) { 
         var res = []
