@@ -89,7 +89,7 @@ var zhanglezl = function () {
             }
         }
         return res
-    }D
+    }
     function flattenDepth(ary, depth) {
         var res = []
         if (depth == 0) return ary
