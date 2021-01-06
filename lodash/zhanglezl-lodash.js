@@ -351,9 +351,13 @@ var zhanglezl = function () {
         var res = [].concat(...values)
         return ary.filter(it => res.indexOf(it) == -1)
     }
-    function differenceBy(ary, ...values, iteratee = it => it) {
+
+    function differenceBy(ary, ...values) {
+        if (isArray(values[values.length - 1])) {
+            return difference(array, ...values)
+        }
+        let iteratee = process(values.pop())
         var res = [].concat(...values)
-        iteratee = process(iteratee)
         return ary.filter(it => res.every(re => iteratee(re) !== iteratee(it)))
     }
 
@@ -487,7 +491,7 @@ var zhanglezl = function () {
         }
       }
     return {
-        compact, chunk, join, last, lastindexof, fill, findIndex, findLastIndex, flatten, flattenDeep, flattenDepth, fromPairs, head, indexOf, initial , drop, dropRight, reverse, sortedIndex, max, maxBy, min, minBy, sum, sumBy, find, toArray, every, filter, curry, concat, groupBy, mapValues, map, some, identity, mapKeys, difference, intersection, property, get, isMatch, matches, bind, 
+        compact, chunk, join, last, lastindexof, fill, findIndex, findLastIndex, flatten, flattenDeep, flattenDepth, fromPairs, head, indexOf, initial , drop, dropRight, reverse, sortedIndex, max, maxBy, min, minBy, sum, sumBy, find, toArray, every, filter, curry, concat, groupBy, mapValues, map, some, identity, mapKeys, difference, intersection, property, get, isMatch, matches, bind, differenceBy, ary, before, after, flip, negate, spread,
     }
 
 }()
